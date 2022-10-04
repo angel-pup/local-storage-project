@@ -1,5 +1,6 @@
 let timerEl = document.querySelector('.timer');
 let startButton = document.querySelector('.start-button');
+let win = false;
 
 function loser() {
     timerEl.innerHTML = '10';
@@ -12,6 +13,13 @@ function startTimer() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft;
+
+        if (secondsLeft >= 0) {
+            if (win === true && secondsLeft > 0) {
+                clearInterval(timerInterval);
+                winner();
+            }
+        }
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
