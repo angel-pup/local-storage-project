@@ -6,16 +6,22 @@ function loser() {
     alert('You lose!');
 }
 
-startButton.addEventListener('click', function () {
+function startTimer() {
     let secondsLeft = 10;
 
-    let timerInterval = setInterval(function() {
+    let timerInterval = setInterval(function () {
         secondsLeft--;
         timerEl.innerHTML = secondsLeft;
 
-        if(secondsLeft === 0) {
+        if (secondsLeft === 0) {
             clearInterval(timerInterval);
             loser();
         }
     }, 1000);
-});
+}
+
+function start() {
+    startTimer();
+}
+
+startButton.addEventListener('click', start());
