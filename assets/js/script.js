@@ -1,9 +1,9 @@
-let timerEl = document.querySelector('.timer');
+let timerCountEl = document.querySelector('.timer-count');
 let startButton = document.querySelector('.start-button');
 let win = false;
 
 function loser() {
-    timerEl.innerHTML = '10';
+    timerCountEl.innerHTML = '10';
     alert('You lose!');
 }
 
@@ -12,7 +12,7 @@ function startTimer() {
 
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timerEl.innerHTML = secondsLeft;
+        timerCountEl.innerHTML = secondsLeft;
 
         if (secondsLeft >= 0) {
             if (win === true && secondsLeft > 0) {
@@ -32,4 +32,4 @@ function start() {
     startTimer();
 }
 
-startButton.addEventListener('click', start());
+startButton.addEventListener('click', start);
